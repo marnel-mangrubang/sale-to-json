@@ -30,7 +30,7 @@
     "extends": "react-app"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=14.0.0 <16.0.0"
   },
   "browserslist": [
     ">0.2%",
