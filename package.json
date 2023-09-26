@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "excel": "^1.0.0",
-    "fs": "0.0.1-security",
     "moment": "^2.22.2",
     "react": "^16.6.3",
     "react-copy-to-clipboard": "^5.0.1",
