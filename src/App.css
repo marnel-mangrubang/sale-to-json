@@ -262,6 +262,9 @@ h6.proposed-headline{
   "travel_start_costa_rica"
   "travel_end_costa_rica"
   "days_availability_costa_rica"
+  "travel_start_belize_city"
+  "travel_end_belize_city"
+  "days_availability_belize_city"
   "travel_start_florida"
   "travel_end_florida"
   "days_availability_to_florida"
@@ -348,6 +351,7 @@ input.form-control {
     "purchase_by travel_start_hawaii travel_end_hawaii days_availability_hawaii"
     "advance_purchase travel_start_mexico travel_end_mexico days_availability_mexico"
     "default_markets travel_start_costa_rica travel_end_costa_rica days_availability_costa_rica"
+    "default_markets travel_start_belize_city travel_end_belize_city days_availability_belize_city"
     "default_markets travel_start_florida travel_end_florida days_availability_to_florida"
     "default_markets travel_start_florida travel_end_florida days_availability_from_florida"
     "default_markets travel_start_others travel_end_others days_availability_others";
@@ -441,6 +445,15 @@ input.form-control {
 }
 .days_availability_costa_rica{
   grid-area: days_availability_costa_rica;
+}
+.travel_start_belize_city{
+  grid-area: travel_start_belize_city;
+}
+.travel_end_belize_city{
+  grid-area: travel_end_belize_city;
+}
+.days_availability_belize_city{
+  grid-area: days_availability_belize_city;
 }
 .travel_start_florida{
   grid-area: travel_start_florida;

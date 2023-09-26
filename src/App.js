@@ -778,6 +778,8 @@ class App extends Component {
       travel_end_mexico_string: '',
       travel_end_costa_rica: null,
       travel_end_costa_rica_string: '',
+      travel_end_belize_City: null,
+      travel_end_belize_city_string: '',
       travel_end_florida: null,
       travel_end_florida_string: '',
       travel_end_others: null,
@@ -788,6 +790,7 @@ class App extends Component {
       days_availability_hawaii: 'Mondays through Thursdays',
       days_availability_mexico: 'Sundays through Wednesdays',
       days_availability_costa_rica: 'Sundays through Wednesdays',
+      days_availability_belize_city: 'Sundays through Wednesdays',
       days_availability_to_florida: 'Mondays, Tuesdays, and Wednesdays',
       days_availability_from_florida: 'Tuesdays, Wednesdays, and Thursdays',
       days_availability_others: 'Tuesdays, Wednesdays, and Saturdays',
@@ -825,8 +828,12 @@ class App extends Component {
       blackout_end_mexico_string: '',
       blackout_start_costa_rica: null,
       blackout_start_costa_rica_string: '',
+      blackout_start_belize_city: null,
+      blackout_start_belize_city_string: '',
       blackout_end_costa_rica: null,
       blackout_end_costa_rica_string: '',
+      blackout_end_belize_city: null,
+      blackout_end_belize_city_string: '',
       blackout_start_others: null,
       blackout_start_others_string: '',
       blackout_end_others: null,
@@ -865,6 +872,7 @@ class App extends Component {
     this.travelStartHawaiiHandler = this.travelStartHawaiiHandler.bind(this);
     this.travelStartMexicoHandler = this.travelStartMexicoHandler.bind(this);
     this.travelStartCostaRicaHandler = this.travelStartCostaRicaHandler.bind(this);
+    this.travelStartBelizeCityHandler = this.travelStartBelizeCityHandler.bind(this);
     //this.travelStartFloridaHandler = this.travelStartFloridaHandler.bind(this);
     this.travelStartOthersHandler = this.travelStartOthersHandler.bind(this);
 
@@ -873,6 +881,7 @@ class App extends Component {
     this.travelEndHawaiiHandler = this.travelEndHawaiiHandler.bind(this);
     this.travelEndMexicoHandler = this.travelEndMexicoHandler.bind(this);
     this.travelEndCostaRicaHandler = this.travelEndCostaRicaHandler.bind(this);
+    this.travelEndBelizeCityHandler = this.travelEndBelizeCityHandler.bind(this);
     //this.travelEndFloridaHandler = this.travelEndFloridaHandler.bind(this);
     this.travelEndOthersHandler = this.travelEndOthersHandler.bind(this);
 
@@ -880,6 +889,7 @@ class App extends Component {
     this.daysAvailabilityHawaiiHandler = this.daysAvailabilityHawaiiHandler.bind(this);
     this.daysAvailabilityMexicoHandler = this.daysAvailabilityMexicoHandler.bind(this);
     this.daysAvailabilityCostaRicaHandler = this.daysAvailabilityCostaRicaHandler.bind(this);
+    this.daysAvailabilityBelizeCityHandler = this.daysAvailabilityBelizeCityHandler.bind(this);
     this.daysAvailabilityToFloridaHandler = this.daysAvailabilityToFloridaHandler.bind(this);
     this.daysAvailabilityFromFloridaHandler = this.daysAvailabilityFromFloridaHandler.bind(this);
     this.daysAvailabilityOthersHandler = this.daysAvailabilityOthersHandler.bind(this);
@@ -900,7 +910,9 @@ class App extends Component {
     this.blackoutStartDateMexicoHandler = this.blackoutStartDateMexicoHandler.bind(this);
     this.blackoutEndDateMexicoHandler = this.blackoutEndDateMexicoHandler.bind(this);
     this.blackoutStartDateCostaRicaHandler = this.blackoutStartDateCostaRicaHandler.bind(this);
+    this.blackoutStartDateBelizeCityHandler = this.blackoutStartDateBelizeCityHandler.bind(this);
     this.blackoutEndDateCostaRicaHandler = this.blackoutEndDateCostaRicaHandler.bind(this);
+    this.blackoutEndDateBelizeCityHandler = this.blackoutEndDateBelizeCityHandler.bind(this);
     this.blackoutStartDateOthersHandler = this.blackoutStartDateOthersHandler.bind(this);
     this.blackoutEndDateOthersHandler = this.blackoutEndDateOthersHandler.bind(this);
 
@@ -1036,6 +1048,14 @@ class App extends Component {
     });
   }
 
+  travelStartBelizeCityHandler(date) {
+    let temp_string = moment(date).format('YYYY-MM-DD');
+    this.setState({
+      travel_start_belize_city: date,
+      travel_start_belize_city_string: temp_string
+    });
+  }
+
   travelStartOthersHandler(date) {
     let temp_string = moment(date).format('YYYY-MM-DD');
     this.setState({
@@ -1079,6 +1099,14 @@ class App extends Component {
     });
   }
 
+  travelEndBelizeCityHandler(date) {
+    let temp_string = moment(date).format('YYYY-MM-DD');
+    this.setState({
+      travel_end_belize_city: date,
+      travel_end_belize_city_string: temp_string,
+    });
+  }
+
   travelEndOthersHandler(date) {
     let temp_string = moment(date).format('YYYY-MM-DD');
     this.setState({
@@ -1104,6 +1132,12 @@ class App extends Component {
   daysAvailabilityCostaRicaHandler(e) {
     this.setState({
       days_availability_costa_rica: e.target.value
+    });
+  }
+
+  daysAvailabilityBelizeCityHandler(e) {
+    this.setState({
+      days_availability_belize_city: e.target.value
     });
   }
 
@@ -1245,11 +1279,27 @@ class App extends Component {
     });
   }
 
+  blackoutStartDateBelizeCityHandler(date) {
+    let temp_string = moment(date).format('YYYY-MM-DD');
+    this.setState({
+      blackout_start_belize_city: date,
+      blackout_start_belize_city_string: temp_string
+    });
+  }
+
   blackoutEndDateCostaRicaHandler(date) {
     let temp_string = moment(date).format('YYYY-MM-DD');
     this.setState({
       blackout_end_costa_rica: date,
       blackout_end_costa_rica_string: temp_string
+    });
+  }
+
+  blackoutEndDateBelizeCityHandler(date) {
+    let temp_string = moment(date).format('YYYY-MM-DD');
+    this.setState({
+      blackout_end_belize_city: date,
+      blackout_end_belize_city_string: temp_string
     });
   }
 
@@ -2393,7 +2443,7 @@ class App extends Component {
                 <div className="default_markets">
                   <label htmlFor="default_markets"><strong>Default Markets:</strong></label>
                   {this.state.textareaedit === true ? (
-                    <textarea className="form-control rounded-0" id="default_markets" rows="14" onChange={this.saveDefaultMarkets} ></textarea>
+                    <textarea className="form-control rounded-0" id="default_markets" rows="18" onChange={this.saveDefaultMarkets} ></textarea>
                   ) : (
                     <div id="display-data-Container" style={{ height: '100%' }}>{this.displayData}</div>
                   )}
@@ -2470,6 +2520,23 @@ class App extends Component {
                 <div className="days_availability_costa_rica">
                   <label htmlFor="days_availability_costa_rica"><strong>Days Availability:</strong> Costa Rica</label><br />
                   <input type="text" className="form-control" id="days_availability_costa_rica" value={this.state.days_availability_costa_rica} onChange={this.daysAvailabilityCostaRicaHandler} />
+                </div>
+
+
+                {/* This row is for Travel Start: BELIZE CITY */}
+                <div className="travel_start_belize_city">
+                  <label htmlFor="travel_start_belize_city"><strong>Travel Start:</strong> Belize City</label><br />
+                  <DatePicker className="form-control" id="travel_start_belize_city" selected={this.state.travel_start_belize_city} onChange={this.travelStartBelizeCityHandler} />
+                </div>
+                {/* This row is for Complete Travel By: BELIZE CITY */}
+                <div className="travel_end_belize_city">
+                  <label htmlFor="travel_end_belize_city"><strong>Completed Travel By:</strong> Belize City</label><br />
+                  <DatePicker className="form-control" id="travel_end_costa_rica" selected={this.state.travel_end_belize_city} onChange={this.travelEndBelizeCityHandler} />
+                </div>
+                {/* This row is for Days Availability: BELIZE CITY */}
+                <div className="days_availability_belize_city">
+                  <label htmlFor="days_availability_belize_city"><strong>Days Availability:</strong> Belize City</label><br />
+                  <input type="text" className="form-control" id="days_availability_belize_city" value={this.state.days_availability_belize_city} onChange={this.daysAvailabilityBelizeCityHandler} />
                 </div>
 
 
