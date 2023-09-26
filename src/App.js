@@ -20,9 +20,8 @@ import {
   getMyMinute,
   getMyTimeOfDay,
   groupMeByOrigin,
-  getMyFirstTuesday,
-  getMySecondTuesday
 } from './Helper/Helper';
+
 
 
 const city_caps_conversion = [
@@ -680,6 +679,41 @@ const city_caps_conversion = [
     AVFM_name: "MANZANILLO",
     Airport_Code: "ZLO",
     City_Name: "Manzanillo"
+  },
+  {
+    AVFM_name: "FORT MYERS",
+    Airport_Code: "RSW",
+    City_Name: "Fort Myers"
+  },
+  {
+    AVFM_name: "CINCINNATI",
+    Airport_Code: "CVG",
+    City_Name: "Cincinnati"
+  },
+  {
+    AVFM_name: "CLEVELAND",
+    Airport_Code: "CLE",
+    City_Name: "Cleveland"
+  },
+  {
+    AVFM_name: "BELIZE CITY",
+    Airport_Code: "BZE",
+    City_Name: "Belize City"
+  },
+  {
+    AVFM_name: "NASSAU",
+    Airport_Code: "NAS",
+    City_Name: "Nassau"
+  },
+  {
+    AVFM_name: "GUATEMALA CITY",
+    Airport_Code: "GUA",
+    City_Name: "Guatemala City"
+  },
+  {
+    AVFM_name: "JACKSON HOLE",
+    Airport_Code: "JAC",
+    City_Name: "Jackson Hole"
   }
 ];
 
@@ -869,7 +903,6 @@ class App extends Component {
     this.blackoutEndDateCostaRicaHandler = this.blackoutEndDateCostaRicaHandler.bind(this);
     this.blackoutStartDateOthersHandler = this.blackoutStartDateOthersHandler.bind(this);
     this.blackoutEndDateOthersHandler = this.blackoutEndDateOthersHandler.bind(this);
-
 
   }
 
@@ -1617,15 +1650,25 @@ class App extends Component {
       let endDateValue = end_date;
       let purchaseByValue = 'Purchase by ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + '.'
 
+
       let saverPrice = item["price_types"].find((priceTypeObj) => priceTypeObj.fare_type === 'Saver');
-      let saverRevenueValue = saverPrice.price;
+      let saverRevenueValue;
+      if(saverPrice !== undefined){
+        saverRevenueValue = saverPrice.price;
+      }
 
       let mainPrice = item["price_types"].find((priceTypeObj) => priceTypeObj.fare_type === 'Main');
-      let mainRevenueValue = mainPrice.price;
+      let mainRevenueValue;
+      if(mainPrice !== undefined){
+        mainRevenueValue = mainPrice.price;
+      }
 
       let milesPrice = item["price_types"].find((priceTypeObj) => priceTypeObj.fare_type === 'Miles');
-      let milesValue = milesPrice.price;
-      let feeValue = milesPrice.taxes;
+      let milesValue, feeValue;
+      if(milesPrice !== undefined){
+        milesValue = milesPrice.price;
+        feeValue = milesPrice.taxes;
+      }
 
       let activateValue = this.state.sale_start_date;
       let deactivateValue = this.state.sale_end_date;
@@ -1641,8 +1684,11 @@ class App extends Component {
       dealSetObject.fareRules = fareRulesValue;
       dealSetObject.saverRevenue = saverRevenueValue;
       dealSetObject.mainRevenue = mainRevenueValue;
-      dealSetObject.miles = milesValue;
-      dealSetObject.fee = feeValue;
+
+
+      dealSetObject.miles = milesValue || null;
+      dealSetObject.fee = feeValue || null;
+
       dealSetObject.activate = activateValue;
       dealSetObject.deactivate = deactivateValue;
       dealSetObject.travelStart = startDateValue;
@@ -1655,6 +1701,7 @@ class App extends Component {
 
     outputArray = JSON.stringify(outputArray)
     console.log('outputArray: ', outputArray);
+
     this.setState({
       finalOutput: outputArray
     });
@@ -1742,7 +1789,6 @@ class App extends Component {
     const splitAward = awardString.split('+');
     let awardOnly = splitAward[0].trim();
     let awardToInt = parseInt(awardOnly);
-    console.log('LEXI: ', awardToInt);
     return awardToInt;
   }
 
@@ -2052,8 +2098,17 @@ class App extends Component {
             let my_fare_type = data[i][11];
 
             let mygroup = "";
-
-            if (groupMeByOrigin(data[i][2]) === "HAWAII") {
+            if( (groupMeByOrigin(data[i][2]) === "ALASKA" && groupMeByOrigin(data[i][4]) === "HAWAII") || (groupMeByOrigin(data[i][2]) === "HAWAII" && groupMeByOrigin(data[i][4]) === "ALASKA") ){
+              mygroup = "ALASKA_HAWAII";
+            }else if(groupMeByOrigin(data[i][2]) === "ALASKA" && groupMeByOrigin(data[i][4]) === "ALASKA"){
+                //CLUB49 UPPER
+                mygroup = "ALASKA_ALASKA";
+            }else if(groupMeByOrigin(data[i][2]) === "ALASKA"){
+                //CLUB49 LOWER
+                mygroup = "FROM_ALASKA";
+            }else if(groupMeByOrigin(data[i][4]) === "ALASKA"){
+                mygroup = "TO_ALASKA";
+            }else if (groupMeByOrigin(data[i][2]) === "HAWAII") {
               mygroup = "FROM_HAWAII";
             } else if (groupMeByOrigin(data[i][4]) === "HAWAII") {
               mygroup = "TO_HAWAII";

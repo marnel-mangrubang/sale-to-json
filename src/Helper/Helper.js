@@ -170,6 +170,13 @@ export function returnMyCityName(code) {
         'PAE': 'Everett / Paine Field',
         'ELP': 'El Paso',
         'CMH': 'Columbus',
+        'RSW': 'Fort Myers',
+        'CVG': 'Cincinnati',
+        'CLE': 'Cleveland',
+        'BZE': 'Belize City',
+        'NAS': 'Nassau',
+        'GUA': 'Guatemala City',
+        'JAC': 'Jackson Hole'
     }[code]
 }
 
@@ -289,10 +296,11 @@ export function getMyTimeOfDay(date_passed) {
 export function groupMeByOrigin(code) {
     let alaska_only_codes = ["ADK", "ANC", "BRW", "BET", "CDV", "DLG", "DUT", "FAI", "GST", "JNU", "KTN", "AKN", "ADQ", "OTZ", "OME", "PSG", "SCC", "SIT", "WRG", "YAK"];
     let hawaii_only_codes = ["OGG", "LIH", "KOA", "HNL"];
-    let florida_only_codes = ["FLL", "MCO", "MIA", "TPA"];
+    let florida_only_codes = ["FLL", "MCO", "MIA", "TPA", "RSW"];
     let mexico_only_codes = ["MEX", "CUN", "GDL", "LTO", "SJD", "ZLO", "MZT", "PVR", "ZIH"];
     let costa_rica_only_codes = ["LIR", "SJO", "HAV"];
     let pae_only_codes = ["PAE"];
+    let belize_codes = ["BZE"];
 
     if (alaska_only_codes.indexOf(code) > -1) {
         return "ALASKA";
@@ -306,6 +314,8 @@ export function groupMeByOrigin(code) {
         return "COSTA_RICA";
     } else if (pae_only_codes.indexOf(code) > -1) {
         return "PAE";
+    } else if (belize_codes.indexOf(code) > -1) {
+        return "BZE";
     } else {
         return "OTHER_MARKET";
     }
