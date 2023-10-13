@@ -1498,7 +1498,7 @@ class App extends Component {
         .ele('TravelDates', { 'startdate': start_date + 'T00:00:01', 'enddate': end_date + 'T23:59:59' }).up()
         .ele('DealTitle').up()
         .ele('DealDescrip', '<![CDATA[Purchase by ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + '.]]>').up()
-        .ele('terms', '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + ', and at least ' + this.state.advance_purchase + ' prior to departure. Travel from ' + item["origin_city"] + ' (' + item["origin_code"] + ') to ' + item["destination_city"] + ' (' + item["destination_code"] + ') is valid ' + days_availability + ' from ' + makeDateMonthInEnglish(travel_start) + ' ' + getMyDay(travel_start) + ', ' + getMyYear(travel_start) + ' - ' + makeDateMonthInEnglish(travel_end) + ' ' + getMyDay(travel_end) + ', ' + getMyYear(travel_end) + '. ' + service_begin_sentence + '' + service_ends_sentence + '' + black_out_date_sentence + 'Bag fees <auro-hyperlink href="#terms">may apply</auro-hyperlink> for <auro-hyperlink href="/content/travel-info/baggage/checked-bags">checked baggage</auro-hyperlink>. See <auro-hyperlink href="#terms">bottom of page</auro-hyperlink> for full terms and conditions.]]>').up()
+        .ele('terms', '<![CDATA[<strong>Fare Rules:</strong> Purchase by 11:59 pm (PT) on ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + ', and at least ' + this.state.advance_purchase + ' prior to departure. Travel from ' + item["origin_city"] + ' (' + item["origin_code"] + ') to ' + item["destination_city"] + ' (' + item["destination_code"] + ') is valid ' + days_availability + ' from ' + makeDateMonthInEnglish(travel_start) + ' ' + getMyDay(travel_start) + ', ' + getMyYear(travel_start) + ' - ' + makeDateMonthInEnglish(travel_end) + ' ' + getMyDay(travel_end) + ', ' + getMyYear(travel_end) + '. ' + service_begin_sentence + '' + service_ends_sentence + '' + black_out_date_sentence + 'Bag fees <auro-hyperlink relative="true" href="#terms">may apply</auro-hyperlink> for <auro-hyperlink relative="true" href="/content/travel-info/baggage/checked-bags">checked baggage</auro-hyperlink>. See <auro-hyperlink relative="true" href="#terms">bottom of page</auro-hyperlink> for full terms and conditions.]]>').up()
         .up()
       let fares_layer = deal_set.ele('Fares');
 
@@ -1733,7 +1733,7 @@ class App extends Component {
       // let d_type = 'Saver';
       // let saleNameComment = getMyMonth(this.state.sale_start_date) + '/' + getMyDay(this.state.sale_start_date) + ' ' + item["name"];
 
-      let fareRulesValue = 'Fare Rules:</strong> Purchase by 11:59 pm (PT) on ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + ', and at least ' + this.state.advance_purchase + ' prior to departure. Travel from ' + item["origin_city"] + ' (' + item["origin_code"] + ') to ' + item["destination_city"] + ' (' + item["destination_code"] + ') is valid ' + days_availability + ' from ' + makeDateMonthInEnglish(travel_start) + ' ' + getMyDay(travel_start) + ', ' + getMyYear(travel_start) + ' - ' + makeDateMonthInEnglish(travel_end) + ' ' + getMyDay(travel_end) + ', ' + getMyYear(travel_end) + '. ' + service_begin_sentence + '' + service_ends_sentence + '' + black_out_date_sentence + 'Bag fees <auro-hyperlink href="#terms">may apply</auro-hyperlink> for <auro-hyperlink href="/content/travel-info/baggage/checked-bags">checked baggage</auro-hyperlink>. See <auro-hyperlink href="#terms">bottom of page</auro-hyperlink> for full terms and conditions.';
+      let fareRulesValue = 'Fare Rules:</strong> Purchase by 11:59 pm (PT) on ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + ', and at least ' + this.state.advance_purchase + ' prior to departure. Travel from ' + item["origin_city"] + ' (' + item["origin_code"] + ') to ' + item["destination_city"] + ' (' + item["destination_code"] + ') is valid ' + days_availability + ' from ' + makeDateMonthInEnglish(travel_start) + ' ' + getMyDay(travel_start) + ', ' + getMyYear(travel_start) + ' - ' + makeDateMonthInEnglish(travel_end) + ' ' + getMyDay(travel_end) + ', ' + getMyYear(travel_end) + '. ' + service_begin_sentence + '' + service_ends_sentence + '' + black_out_date_sentence + 'Bag fees <auro-hyperlink relative="true" href="#terms">may apply</auro-hyperlink> for <auro-hyperlink relative="true" href="/content/travel-info/baggage/checked-bags">checked baggage</auro-hyperlink>. See <auro-hyperlink relative="true" href="#terms">bottom of page</auro-hyperlink> for full terms and conditions.';
       let dealCodeValue = getMyYear(this.state.sale_start_date) + '' + getMyMonth(this.state.sale_start_date) + '' + getMyDay(this.state.sale_start_date) + '_SALE-' + item["name"];
 
       let startDateValue = `${start_date}T00:00:01.000Z`;
@@ -1782,8 +1782,8 @@ class App extends Component {
 
       dealSetObject.activate = activateValue;
       dealSetObject.deactivate = deactivateValue;
-      dealSetObject.travelStart = startDateValue;
-      dealSetObject.travelEnd = endDateValue;
+      dealSetObject.startDate = startDateValue;
+      dealSetObject.endDate = endDateValue;
 
       //Push DealSet Object to final output Array
       outputArray.push(dealSetObject);
