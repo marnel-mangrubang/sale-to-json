@@ -301,6 +301,7 @@ export function groupMeByOrigin(code) {
     let costa_rica_only_codes = ["LIR", "SJO", "HAV"];
     let pae_only_codes = ["PAE"];
     let belize_codes = ["BZE"];
+    let guatelama_codes = ["GUA"];
 
     if (alaska_only_codes.indexOf(code) > -1) {
         return "ALASKA";
@@ -316,6 +317,8 @@ export function groupMeByOrigin(code) {
         return "PAE";
     } else if (belize_codes.indexOf(code) > -1) {
         return "BZE";
+    } else if (guatelama_codes.indexOf(code) > -1) {
+        return "GUA";
     } else {
         return "OTHER_MARKET";
     }

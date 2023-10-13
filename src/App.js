@@ -1443,6 +1443,26 @@ class App extends Component {
         if (this.state.blackout_start_costa_rica !== null && this.state.blackout_start_costa_rica !== null) {
           black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_costa_rica) + ' ' + getMyDay(this.state.blackout_start_costa_rica) + ', ' + getMyYear(this.state.blackout_start_costa_rica) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_costa_rica) + ' ' + getMyDay(this.state.blackout_end_costa_rica) + ', ' + getMyYear(this.state.blackout_end_costa_rica) + '. '
         }
+      } else if (item["group"] === "BZE") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_belize_city;
+        travel_end = this.state.travel_end_belize_city;
+        days_availability = this.state.days_availability_belize_city;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "GUA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
       } else if (item["group"] === "PAE") {
         start_date = this.state.proposed_start_pae_string;
         end_date = this.state.proposed_end_pae_string;
@@ -1663,6 +1683,26 @@ class App extends Component {
         if (this.state.blackout_start_costa_rica !== null && this.state.blackout_start_costa_rica !== null) {
           black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_costa_rica) + ' ' + getMyDay(this.state.blackout_start_costa_rica) + ', ' + getMyYear(this.state.blackout_start_costa_rica) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_costa_rica) + ' ' + getMyDay(this.state.blackout_end_costa_rica) + ', ' + getMyYear(this.state.blackout_end_costa_rica) + '. '
         }
+      } else if (item["group"] === "BZE") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "GUA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
       } else if (item["group"] === "PAE") {
         start_date = this.state.proposed_start_pae_string;
         end_date = this.state.proposed_end_pae_string;
@@ -1696,8 +1736,8 @@ class App extends Component {
       let fareRulesValue = 'Fare Rules:</strong> Purchase by 11:59 pm (PT) on ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + ', and at least ' + this.state.advance_purchase + ' prior to departure. Travel from ' + item["origin_city"] + ' (' + item["origin_code"] + ') to ' + item["destination_city"] + ' (' + item["destination_code"] + ') is valid ' + days_availability + ' from ' + makeDateMonthInEnglish(travel_start) + ' ' + getMyDay(travel_start) + ', ' + getMyYear(travel_start) + ' - ' + makeDateMonthInEnglish(travel_end) + ' ' + getMyDay(travel_end) + ', ' + getMyYear(travel_end) + '. ' + service_begin_sentence + '' + service_ends_sentence + '' + black_out_date_sentence + 'Bag fees <auro-hyperlink href="#terms">may apply</auro-hyperlink> for <auro-hyperlink href="/content/travel-info/baggage/checked-bags">checked baggage</auro-hyperlink>. See <auro-hyperlink href="#terms">bottom of page</auro-hyperlink> for full terms and conditions.';
       let dealCodeValue = getMyYear(this.state.sale_start_date) + '' + getMyMonth(this.state.sale_start_date) + '' + getMyDay(this.state.sale_start_date) + '_SALE-' + item["name"];
 
-      let startDateValue = start_date;
-      let endDateValue = end_date;
+      let startDateValue = `${start_date}T00:00:01.000Z`;
+      let endDateValue = `${end_date}T23:59:59.000Z`;
       let purchaseByValue = 'Purchase by ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + '.'
 
 
@@ -1720,8 +1760,9 @@ class App extends Component {
         feeValue = milesPrice.taxes;
       }
 
-      let activateValue = this.state.sale_start_date;
-      let deactivateValue = this.state.sale_end_date;
+      let activateValue = `${this.state.sale_start_date_string}T00:00:01.000Z`;
+      let deactivateValue = `${this.state.sale_end_date_string}T23:59:59.000Z`;
+
 
       //Create DealSet Object
       dealSetObject.dealCode = dealCodeValue;
@@ -1938,6 +1979,8 @@ class App extends Component {
             travel_start_mexico_string: temp_string,
             travel_start_costa_rica: data[index][1],
             travel_start_costa_rica_string: temp_string,
+            travel_start_belize_city: data[index][1],
+            travel_start_belize_city_string: temp_string,
             travel_start_florida: data[index][1],
             travel_start_florida_string: temp_string,
             travel_start_others: data[index][1],
@@ -1958,6 +2001,8 @@ class App extends Component {
             travel_end_mexico_string: temp_string,
             travel_end_costa_rica: data[index][1],
             travel_end_costa_rica_string: temp_string,
+            travel_end_belize_city: data[index][1],
+            travel_end_belize_city_string: temp_string,
             travel_end_florida: data[index][1],
             travel_end_florida_string: temp_string,
             travel_end_others: data[index][1],
@@ -2050,6 +2095,11 @@ class App extends Component {
                 blackout_end_costa_rica: temp_blackout_end_date,
                 blackout_end_costa_rica_string: temp_blackout_end_date_string,
 
+                blackout_start_belize_city: temp_blackout_start_date,
+                blackout_start_belize_city_string: temp_blackout_start_date_string,
+                blackout_end_belize_city: temp_blackout_end_date,
+                blackout_end_belize_city_string: temp_blackout_end_date_string,
+
                 blackout_start_mexico: temp_blackout_start_date,
                 blackout_start_mexico_string: temp_blackout_start_date_string,
                 blackout_end_mexico: temp_blackout_end_date,
@@ -2095,6 +2145,11 @@ class App extends Component {
                 blackout_start_costa_rica_string: temp_blackout_start_date_string,
                 blackout_end_costa_rica: temp_blackout_end_date,
                 blackout_end_costa_rica_string: temp_blackout_end_date_string,
+
+                blackout_start_belize_city: temp_blackout_start_date,
+                blackout_start_belize_city_string: temp_blackout_start_date_string,
+                blackout_end_belize_city: temp_blackout_end_date,
+                blackout_end_belize_city_string: temp_blackout_end_date_string,
 
                 blackout_start_mexico: temp_blackout_start_date,
                 blackout_start_mexico_string: temp_blackout_start_date_string,
@@ -2169,6 +2224,10 @@ class App extends Component {
               mygroup = "MEXICO";
             } else if (groupMeByOrigin(data[i][4]) === "COSTA_RICA") {
               mygroup = "COSTA_RICA";
+            } else if (groupMeByOrigin(data[i][4]) === "BZE") {
+              mygroup = "BZE";
+            } else if (groupMeByOrigin(data[i][4]) === "GUA") {
+              mygroup = "GUA";
             } else if (groupMeByOrigin(data[i][2]) === "FLORIDA") {
               mygroup = "FROM_FLORIDA";
             } else if (groupMeByOrigin(data[i][4]) === "FLORIDA") {
