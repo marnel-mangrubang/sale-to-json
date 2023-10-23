@@ -730,7 +730,7 @@ class App extends Component {
       all_my_fares: [],
       default_markets: [],
       combined_saver_and_main: [],
-      exceptions: [{ code_origin: '', code_destination: '', travel_valid: '', service_begins: null, service_ends: null, begins_string: '', ends_string: '' }],
+      exceptions: [{ code_combo: '', code_origin: '', code_destination: '', sentence: '' }],
       pulled_exception_fares: [],
       firstinput: 'Initial data...',
       advance_purchase: '',
@@ -1743,19 +1743,19 @@ class App extends Component {
 
       let saverPrice = item["price_types"].find((priceTypeObj) => priceTypeObj.fare_type === 'Saver');
       let saverRevenueValue;
-      if(saverPrice !== undefined){
+      if (saverPrice !== undefined) {
         saverRevenueValue = saverPrice.price;
       }
 
       let mainPrice = item["price_types"].find((priceTypeObj) => priceTypeObj.fare_type === 'Main');
       let mainRevenueValue;
-      if(mainPrice !== undefined){
+      if (mainPrice !== undefined) {
         mainRevenueValue = mainPrice.price;
       }
 
       let milesPrice = item["price_types"].find((priceTypeObj) => priceTypeObj.fare_type === 'Miles');
       let milesValue, feeValue;
-      if(milesPrice !== undefined){
+      if (milesPrice !== undefined) {
         milesValue = milesPrice.price;
         feeValue = milesPrice.taxes;
       }
@@ -1791,7 +1791,7 @@ class App extends Component {
 
 
     outputArray = JSON.stringify(outputArray)
-    console.log('outputArray: ', outputArray);
+    // console.log('outputArray: ', outputArray);
 
     this.setState({
       finalOutput: outputArray
@@ -2203,17 +2203,17 @@ class App extends Component {
             let my_fare_type = data[i][11];
 
             let mygroup = "";
-            if( (groupMeByOrigin(data[i][2]) === "ALASKA" && groupMeByOrigin(data[i][4]) === "HAWAII") || (groupMeByOrigin(data[i][2]) === "HAWAII" && groupMeByOrigin(data[i][4]) === "ALASKA") ){
+            if ((groupMeByOrigin(data[i][2]) === "ALASKA" && groupMeByOrigin(data[i][4]) === "HAWAII") || (groupMeByOrigin(data[i][2]) === "HAWAII" && groupMeByOrigin(data[i][4]) === "ALASKA")) {
               mygroup = "ALASKA_HAWAII";
-            }else if(groupMeByOrigin(data[i][2]) === "ALASKA" && groupMeByOrigin(data[i][4]) === "ALASKA"){
-                //CLUB49 UPPER
-                mygroup = "ALASKA_ALASKA";
-            }else if(groupMeByOrigin(data[i][2]) === "ALASKA"){
-                //CLUB49 LOWER
-                mygroup = "FROM_ALASKA";
-            }else if(groupMeByOrigin(data[i][4]) === "ALASKA"){
-                mygroup = "TO_ALASKA";
-            }else if (groupMeByOrigin(data[i][2]) === "HAWAII") {
+            } else if (groupMeByOrigin(data[i][2]) === "ALASKA" && groupMeByOrigin(data[i][4]) === "ALASKA") {
+              //CLUB49 UPPER
+              mygroup = "ALASKA_ALASKA";
+            } else if (groupMeByOrigin(data[i][2]) === "ALASKA") {
+              //CLUB49 LOWER
+              mygroup = "FROM_ALASKA";
+            } else if (groupMeByOrigin(data[i][4]) === "ALASKA") {
+              mygroup = "TO_ALASKA";
+            } else if (groupMeByOrigin(data[i][2]) === "HAWAII") {
               mygroup = "FROM_HAWAII";
             } else if (groupMeByOrigin(data[i][4]) === "HAWAII") {
               mygroup = "TO_HAWAII";
@@ -2301,92 +2301,53 @@ class App extends Component {
     })//end of readXlsxFile for US Ad Fare Sheet
 
 
+
+
+    //Sheet 9 Looper - EXCEPTIONS
+    readXlsxFile(file, { sheet: 7 }).then((data) => {
+      //Loops through every row in the sheet
+
+      let exceptions_array = [];
+
+      for (let index = 0; index < data.length; index++) {
+
+        //Get Sale Start Date from Sheet 1 and set state for sale_start_date variables
+        if (data[index][0] !== null && data[index][0].length === 6 && data[index][1] !== null) {
+          // let temp_string = moment(data[index][1]).format('YYYY-MM-DD');
+          let splitOriginAndDestination = data[index][0].match(/.{1,3}/g)
+          // console.log(splitOriginAndDestination[0], ' : ', splitOriginAndDestination[1]);
+          exceptions_array.push({ code_combo: data[index][0], code_origin: splitOriginAndDestination[0], code_destination: splitOriginAndDestination[1], sentence: data[index][1] });
+          //exceptions: [{ code_combo: '', code_origin: '', code_destination: '', sentence: '' }],
+
+        } else {
+          console.log('THERE IS AN EXCEPTION THAT HAS INVALIDE CODE COMBO!')
+        }
+
+
+      }//end of for loop Sheet 9
+
+      this.setState({
+        exceptions: exceptions_array,
+      });
+
+
+    })//end of readXlsxFile for Sheet 9
+
+
+
+
+
+
   }
 
 
-  handleExceptionCodeChange = (idx) => (evt) => {
-    let temp_code = evt.target.value;
-    temp_code = temp_code.toUpperCase();
-    if (temp_code.length === 6) {
-      temp_code = temp_code.match(/.{1,3}/g);
-    } else {
-      temp_code = evt.target.value
-    }
-
-    const newShareholders = this.state.exceptions.map((item, sidx) => {
-      if (idx !== sidx) return item;
-      return {
-        ...item,
-        code_origin: temp_code[0],
-        code_destination: temp_code[1]
-      };
-    });
-    this.setState({
-      exceptions: newShareholders
-    });
-  }
 
 
-  handleExceptionTravelValid = (idx) => (evt) => {
-    const newShareholders = this.state.exceptions.map((item, sidx) => {
-      if (idx !== sidx) return item;
-      return {
-        ...item,
-        travel_valid: evt.target.value
-      };
-    });
-    this.setState({
-      exceptions: newShareholders
-    });
-  }
-
-
-  handleExceptionServiceBegins = (idx) => (date) => {
-    let temp_string = moment(date).format('YYYY-MM-DD');
-    const newShareholders = this.state.exceptions.map((item, sidx) => {
-      if (idx !== sidx) return item;
-      return {
-        ...item,
-        service_begins: date,
-        begins_string: temp_string,
-      };
-    });
-
-    this.setState({
-      exceptions: newShareholders
-    });
-  }
-
-
-  handleExceptionServiceEnds = (idx) => (date) => {
-    let temp_string = moment(date).format('YYYY-MM-DD');
-    const newShareholders = this.state.exceptions.map((item, sidx) => {
-      if (idx !== sidx) return item;
-      return {
-        ...item,
-        service_ends: date,
-        ends_string: temp_string,
-      };
-    });
-
-    this.setState({
-      exceptions: newShareholders
-    });
-  }
-
-
-  handleAddException = () => {
-    this.setState({
-      exceptions: this.state.exceptions.concat([{ code_origin: '', code_destination: '', travel_valid: '', service_begins: null, service_ends: null, begins_string: '', ends_string: '' }])
-    });
-  }
-
-
-  handleRemoveException = (idx) => () => {
-    this.setState({
-      exceptions: this.state.exceptions.filter((s, sidx) => idx !== sidx)
-    });
-  }
+  // handleAddException = () => {
+  //   this.setState({
+  //     exceptions: this.state.exceptions.concat([{ code_origin: '', code_destination: '', travel_valid: '', service_begins: null, service_ends: null, begins_string: '', ends_string: '' }])
+  //   });
+  // }
 
 
   resetOutputVariable = () => () => {
