@@ -929,14 +929,17 @@ class App extends Component {
 
 
   markAsDefault(def_market) {
+    
 
     let array_all_combined_prices = [...this.state.combined_saver_and_main];
+    
 
-    this.state.combined_saver_and_main.some((item) => {
+    this.state.combined_saver_and_main.some((item, ind) => {
       if (def_market === item.name && item.default !== true) {
         let index = array_all_combined_prices.indexOf(item);
         if (index !== -1) {
           item['default'] = true;
+          console.log(`🔥🔥🔥 Found ${item.name} as a default market! ⤵ `,  item)
         }
       }
     });
@@ -950,15 +953,21 @@ class App extends Component {
     temp_val = temp_val.split('\n');
 
     const new_defaults = temp_val.map((item) => {
-
-      let split_market_and_price = item.replace(/\s/g, '');
-      split_market_and_price = split_market_and_price.match(/.{1,6}/g);
       return {
-        default_market: split_market_and_price[0],
-        default_price: split_market_and_price[1]
+        default_market: item,
+        default_price: null
       };
-
     });
+
+    // const new_defaults = temp_val.map((item) => {
+    //   let split_market_and_price = item.replace(/\s/g, '');
+    //   split_market_and_price = split_market_and_price.match(/.{1,6}/g);
+    //   return {
+    //     default_market: split_market_and_price[0],
+    //     default_price: split_market_and_price[1]
+    //   };
+    // });
+    // console.log('new_defaults: ', new_defaults)
 
     //Loop through default markets array and pass each code pair to markAsDefault function to make each default fare a default market
     new_defaults.map((myobj) => {
@@ -1766,7 +1775,7 @@ class App extends Component {
 
       //Create DealSet Object
       dealSetObject.dealCode = dealCodeValue;
-      dealSetObject.showAsDefault = false;
+      dealSetObject.showAsDefault = item['default'];
       dealSetObject.origin = item['origin_city'];
       dealSetObject.originShort = item['origin_code'];
       dealSetObject.destination = item['destination_city'];
@@ -2304,34 +2313,34 @@ class App extends Component {
 
 
     //Sheet 9 Looper - EXCEPTIONS
-    readXlsxFile(file, { sheet: 7 }).then((data) => {
-      //Loops through every row in the sheet
+    // readXlsxFile(file, { sheet: 7 }).then((data) => {
+    //   //Loops through every row in the sheet
 
-      let exceptions_array = [];
+    //   let exceptions_array = [];
 
-      for (let index = 0; index < data.length; index++) {
+    //   for (let index = 0; index < data.length; index++) {
 
-        //Get Sale Start Date from Sheet 1 and set state for sale_start_date variables
-        if (data[index][0] !== null && data[index][0].length === 6 && data[index][1] !== null) {
-          // let temp_string = moment(data[index][1]).format('YYYY-MM-DD');
-          let splitOriginAndDestination = data[index][0].match(/.{1,3}/g)
-          // console.log(splitOriginAndDestination[0], ' : ', splitOriginAndDestination[1]);
-          exceptions_array.push({ code_combo: data[index][0], code_origin: splitOriginAndDestination[0], code_destination: splitOriginAndDestination[1], sentence: data[index][1] });
-          //exceptions: [{ code_combo: '', code_origin: '', code_destination: '', sentence: '' }],
+    //     //Get Sale Start Date from Sheet 1 and set state for sale_start_date variables
+    //     if (data[index][0] !== null && data[index][0].length === 6 && data[index][1] !== null) {
+    //       // let temp_string = moment(data[index][1]).format('YYYY-MM-DD');
+    //       let splitOriginAndDestination = data[index][0].match(/.{1,3}/g)
+    //       // console.log(splitOriginAndDestination[0], ' : ', splitOriginAndDestination[1]);
+    //       exceptions_array.push({ code_combo: data[index][0], code_origin: splitOriginAndDestination[0], code_destination: splitOriginAndDestination[1], sentence: data[index][1] });
+    //       //exceptions: [{ code_combo: '', code_origin: '', code_destination: '', sentence: '' }],
 
-        } else {
-          console.log('THERE IS AN EXCEPTION THAT HAS INVALIDE CODE COMBO!')
-        }
-
-
-      }//end of for loop Sheet 9
-
-      this.setState({
-        exceptions: exceptions_array,
-      });
+    //     } else {
+    //       console.log('THERE IS AN EXCEPTION THAT HAS INVALIDE CODE COMBO!')
+    //     }
 
 
-    })//end of readXlsxFile for Sheet 9
+    //   }//end of for loop Sheet 9
+
+    //   this.setState({
+    //     exceptions: exceptions_array,
+    //   });
+
+
+    // })//end of readXlsxFile for Sheet 9
 
 
 
