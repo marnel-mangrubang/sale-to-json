@@ -2438,6 +2438,7 @@ class App extends Component {
               <div className="file_select_grid">
                 <div className="file_select_title">
                   <h3 className="information-headline">Sale Information v3:</h3>
+                  <p>Updated: November 2, 2023 @ 5:25pm</p>
                 </div>
                 <div className="file_select_input">
                   <input type="file" className="form-control" id="inputFile" onChange={this.onFileChange} />
