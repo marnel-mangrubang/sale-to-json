@@ -2481,7 +2481,7 @@ class App extends Component {
               <div className="file_select_grid">
                 <div className="file_select_title">
                   <h3 className="information-headline">Sale Information v3:</h3>
-                  <p>Updated: December 4, 2023 @ 9:00pm</p>
+                  <p>Updated: December 2, 2023 @ 12:32pm</p>
                 </div>
                 <div className="sheet_number_input">
                   Exceptions Sheet#: <input type="text" className="form-control" id="sheet_number" onChange={this.changeExceptionsSheet} placeholder="" value={this.state.exceptions_sheet} style={{ marginTop: 10 }} />
