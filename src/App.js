@@ -1609,141 +1609,141 @@ class App extends Component {
       let days_availability = '';
       let black_out_date_sentence = '';
 
-      // if (item["group"] === "ALASKA_HAWAII") {
-      //   start_date = this.state.proposed_start_hawaii_string;
-      //   end_date = this.state.proposed_end_hawaii_string;
-      //   travel_start = this.state.travel_start_alaska_to_from_hawaii;
-      //   travel_end = this.state.travel_end_alaska_to_from_hawaii;
-      //   days_availability = this.state.days_availability_hawaii;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_alaska_to_from_hawaii !== null && this.state.blackout_end_alaska_to_from_hawaii !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_alaska_to_from_hawaii) + ' ' + getMyDay(this.state.blackout_start_alaska_to_from_hawaii) + ', ' + getMyYear(this.state.blackout_start_alaska_to_from_hawaii) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_alaska_to_from_hawaii) + ' ' + getMyDay(this.state.blackout_end_alaska_to_from_hawaii) + ', ' + getMyYear(this.state.blackout_end_alaska_to_from_hawaii) + '. '
-      //   }
-      // } else if (item["group"] === "ALASKA_ALASKA") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_others;
-      //   travel_end = this.state.travel_end_others;
-      //   days_availability = this.state.days_availability_others;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else if (item["group"] === "FROM_ALASKA") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_others;
-      //   travel_end = this.state.travel_end_others;
-      //   days_availability = this.state.days_availability_others;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else if (item["group"] === "TO_ALASKA") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_others;
-      //   travel_end = this.state.travel_end_others;
-      //   days_availability = this.state.days_availability_others;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else if (item["group"] === "TO_HAWAII" || item["group"] === "FROM_HAWAII") {
-      //   start_date = this.state.proposed_start_hawaii_string;
-      //   end_date = this.state.proposed_end_hawaii_string;
-      //   travel_start = this.state.travel_start_hawaii;
-      //   travel_end = this.state.travel_end_hawaii;
-      //   days_availability = this.state.days_availability_hawaii;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_from_hawaii !== null && this.state.blackout_end_from_hawaii !== null && item["group"] === "FROM_HAWAII") {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_from_hawaii) + ' ' + getMyDay(this.state.blackout_start_from_hawaii) + ', ' + getMyYear(this.state.blackout_start_from_hawaii) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_from_hawaii) + ' ' + getMyDay(this.state.blackout_end_from_hawaii) + ', ' + getMyYear(this.state.blackout_end_from_hawaii) + '. '
-      //   }
-      //   if (this.state.blackout_start_to_hawaii !== null && this.state.blackout_start_to_hawaii !== null && item["group"] === "TO_HAWAII") {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_to_hawaii) + ' ' + getMyDay(this.state.blackout_start_to_hawaii) + ', ' + getMyYear(this.state.blackout_start_to_hawaii) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_to_hawaii) + ' ' + getMyDay(this.state.blackout_end_to_hawaii) + ', ' + getMyYear(this.state.blackout_end_to_hawaii) + '. '
-      //   }
-      // } else if (item["group"] === "TO_FLORIDA") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_florida;
-      //   travel_end = this.state.travel_end_florida;
-      //   days_availability = this.state.days_availability_to_florida;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else if (item["group"] === "FROM_FLORIDA") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_florida;
-      //   travel_end = this.state.travel_end_florida;
-      //   days_availability = this.state.days_availability_from_florida;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else if (item["group"] === "MEXICO") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_mexico;
-      //   travel_end = this.state.travel_end_mexico;
-      //   days_availability = this.state.days_availability_mexico;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_mexico !== null && this.state.blackout_start_mexico !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_mexico) + ' ' + getMyDay(this.state.blackout_start_mexico) + ', ' + getMyYear(this.state.blackout_start_mexico) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_mexico) + ' ' + getMyDay(this.state.blackout_end_mexico) + ', ' + getMyYear(this.state.blackout_end_mexico) + '. '
-      //   }
-      // } else if (item["group"] === "COSTA_RICA") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_costa_rica;
-      //   travel_end = this.state.travel_end_costa_rica;
-      //   days_availability = this.state.days_availability_costa_rica;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_costa_rica !== null && this.state.blackout_start_costa_rica !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_costa_rica) + ' ' + getMyDay(this.state.blackout_start_costa_rica) + ', ' + getMyYear(this.state.blackout_start_costa_rica) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_costa_rica) + ' ' + getMyDay(this.state.blackout_end_costa_rica) + ', ' + getMyYear(this.state.blackout_end_costa_rica) + '. '
-      //   }
-      // } else if (item["group"] === "BZE") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_others;
-      //   travel_end = this.state.travel_end_others;
-      //   days_availability = this.state.days_availability_others;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else if (item["group"] === "GUA") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_others;
-      //   travel_end = this.state.travel_end_others;
-      //   days_availability = this.state.days_availability_others;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else if (item["group"] === "PAE") {
-      //   start_date = this.state.proposed_start_pae_string;
-      //   end_date = this.state.proposed_end_pae_string;
-      //   travel_start = this.state.travel_start_others;
-      //   travel_end = this.state.travel_end_others;
-      //   days_availability = this.state.days_availability_others;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else if (item["group"] === "OTHER_MARKET") {
-      //   start_date = this.state.proposed_start_others_string;
-      //   end_date = this.state.proposed_end_others_string;
-      //   travel_start = this.state.travel_start_others;
-      //   travel_end = this.state.travel_end_others;
-      //   days_availability = this.state.days_availability_others;
-      //   // Pulling BLACKOUT DATES and FORMING the sentence
-      //   if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
-      //     black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
-      //   }
-      // } else {
-      // }
+      if (item["group"] === "ALASKA_HAWAII") {
+        start_date = this.state.proposed_start_hawaii_string;
+        end_date = this.state.proposed_end_hawaii_string;
+        travel_start = this.state.travel_start_alaska_to_from_hawaii;
+        travel_end = this.state.travel_end_alaska_to_from_hawaii;
+        days_availability = this.state.days_availability_hawaii;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_alaska_to_from_hawaii !== null && this.state.blackout_end_alaska_to_from_hawaii !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_alaska_to_from_hawaii) + ' ' + getMyDay(this.state.blackout_start_alaska_to_from_hawaii) + ', ' + getMyYear(this.state.blackout_start_alaska_to_from_hawaii) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_alaska_to_from_hawaii) + ' ' + getMyDay(this.state.blackout_end_alaska_to_from_hawaii) + ', ' + getMyYear(this.state.blackout_end_alaska_to_from_hawaii) + '. '
+        }
+      } else if (item["group"] === "ALASKA_ALASKA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "FROM_ALASKA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "TO_ALASKA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "TO_HAWAII" || item["group"] === "FROM_HAWAII") {
+        start_date = this.state.proposed_start_hawaii_string;
+        end_date = this.state.proposed_end_hawaii_string;
+        travel_start = this.state.travel_start_hawaii;
+        travel_end = this.state.travel_end_hawaii;
+        days_availability = this.state.days_availability_hawaii;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_from_hawaii !== null && this.state.blackout_end_from_hawaii !== null && item["group"] === "FROM_HAWAII") {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_from_hawaii) + ' ' + getMyDay(this.state.blackout_start_from_hawaii) + ', ' + getMyYear(this.state.blackout_start_from_hawaii) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_from_hawaii) + ' ' + getMyDay(this.state.blackout_end_from_hawaii) + ', ' + getMyYear(this.state.blackout_end_from_hawaii) + '. '
+        }
+        if (this.state.blackout_start_to_hawaii !== null && this.state.blackout_start_to_hawaii !== null && item["group"] === "TO_HAWAII") {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_to_hawaii) + ' ' + getMyDay(this.state.blackout_start_to_hawaii) + ', ' + getMyYear(this.state.blackout_start_to_hawaii) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_to_hawaii) + ' ' + getMyDay(this.state.blackout_end_to_hawaii) + ', ' + getMyYear(this.state.blackout_end_to_hawaii) + '. '
+        }
+      } else if (item["group"] === "TO_FLORIDA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_florida;
+        travel_end = this.state.travel_end_florida;
+        days_availability = this.state.days_availability_to_florida;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "FROM_FLORIDA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_florida;
+        travel_end = this.state.travel_end_florida;
+        days_availability = this.state.days_availability_from_florida;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "MEXICO") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_mexico;
+        travel_end = this.state.travel_end_mexico;
+        days_availability = this.state.days_availability_mexico;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_mexico !== null && this.state.blackout_start_mexico !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_mexico) + ' ' + getMyDay(this.state.blackout_start_mexico) + ', ' + getMyYear(this.state.blackout_start_mexico) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_mexico) + ' ' + getMyDay(this.state.blackout_end_mexico) + ', ' + getMyYear(this.state.blackout_end_mexico) + '. '
+        }
+      } else if (item["group"] === "COSTA_RICA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_costa_rica;
+        travel_end = this.state.travel_end_costa_rica;
+        days_availability = this.state.days_availability_costa_rica;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_costa_rica !== null && this.state.blackout_start_costa_rica !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_costa_rica) + ' ' + getMyDay(this.state.blackout_start_costa_rica) + ', ' + getMyYear(this.state.blackout_start_costa_rica) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_costa_rica) + ' ' + getMyDay(this.state.blackout_end_costa_rica) + ', ' + getMyYear(this.state.blackout_end_costa_rica) + '. '
+        }
+      } else if (item["group"] === "BZE") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "GUA") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "PAE") {
+        start_date = this.state.proposed_start_pae_string;
+        end_date = this.state.proposed_end_pae_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else if (item["group"] === "OTHER_MARKET") {
+        start_date = this.state.proposed_start_others_string;
+        end_date = this.state.proposed_end_others_string;
+        travel_start = this.state.travel_start_others;
+        travel_end = this.state.travel_end_others;
+        days_availability = this.state.days_availability_others;
+        // Pulling BLACKOUT DATES and FORMING the sentence
+        if (this.state.blackout_start_others !== null && this.state.blackout_start_others !== null) {
+          black_out_date_sentence = 'Blackout dates are from ' + makeDateMonthInEnglish(this.state.blackout_start_others) + ' ' + getMyDay(this.state.blackout_start_others) + ', ' + getMyYear(this.state.blackout_start_others) + ' to ' + makeDateMonthInEnglish(this.state.blackout_end_others) + ' ' + getMyDay(this.state.blackout_end_others) + ', ' + getMyYear(this.state.blackout_end_others) + '. '
+        }
+      } else {
+      }
 
 
       let service_begin_sentence = '';
@@ -1752,9 +1752,9 @@ class App extends Component {
       // let d_type = 'Saver';
       // let saleNameComment = getMyMonth(this.state.sale_start_date) + '/' + getMyDay(this.state.sale_start_date) + ' ' + item["name"];
 
-      // let fareRulesValue = 'Fare Rules:</strong> Purchase by 11:59 pm (PT) on ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + ', and at least ' + this.state.advance_purchase + ' prior to departure. Travel from ' + item["origin_city"] + ' (' + item["origin_code"] + ') to ' + item["destination_city"] + ' (' + item["destination_code"] + ') is valid ' + days_availability + ' from ' + makeDateMonthInEnglish(travel_start) + ' ' + getMyDay(travel_start) + ', ' + getMyYear(travel_start) + ' - ' + makeDateMonthInEnglish(travel_end) + ' ' + getMyDay(travel_end) + ', ' + getMyYear(travel_end) + '. ' + service_begin_sentence + '' + service_ends_sentence + '' + black_out_date_sentence + 'Bag fees <auro-hyperlink relative="true" href="#terms">may apply</auro-hyperlink> for <auro-hyperlink relative="true" href="/content/travel-info/baggage/checked-bags">checked baggage</auro-hyperlink>. See <auro-hyperlink relative="true" href="#terms">bottom of page</auro-hyperlink> for full terms and conditions.';
+      let fareRulesValue = 'Fare Rules:</strong> Purchase by 11:59 pm (PT) on ' + makeDateMonthInEnglish(this.state.sale_end_date) + ' ' + getMyDay(this.state.sale_end_date) + ', ' + getMyYear(this.state.sale_end_date) + ', and at least ' + this.state.advance_purchase + ' prior to departure. Travel from ' + item["origin_city"] + ' (' + item["origin_code"] + ') to ' + item["destination_city"] + ' (' + item["destination_code"] + ') is valid ' + days_availability + ' from ' + makeDateMonthInEnglish(travel_start) + ' ' + getMyDay(travel_start) + ', ' + getMyYear(travel_start) + ' - ' + makeDateMonthInEnglish(travel_end) + ' ' + getMyDay(travel_end) + ', ' + getMyYear(travel_end) + '. ' + service_begin_sentence + '' + service_ends_sentence + '' + black_out_date_sentence + 'Bag fees <auro-hyperlink relative="true" href="#terms">may apply</auro-hyperlink> for <auro-hyperlink relative="true" href="/content/travel-info/baggage/checked-bags">checked baggage</auro-hyperlink>. See <auro-hyperlink relative="true" href="#terms">bottom of page</auro-hyperlink> for full terms and conditions.';
 
-      let fareRulesValue = all_exceptions[item["name"]]
+      // let fareRulesValue = all_exceptions[item["name"]]
       let dealCodeValue = getMyYear(this.state.sale_start_date) + '' + getMyMonth(this.state.sale_start_date) + '' + getMyDay(this.state.sale_start_date) + '_SALE-' + item["name"];
 
       let startDateValue = `${start_date}T00:00:01.000Z`;
@@ -2206,62 +2206,61 @@ class App extends Component {
     })//end of readXlsxFile for Sheet 1
 
 
-    let exceptions_sheet_name = this.state.exceptions_sheet;
+    // let exceptions_sheet_name = this.state.exceptions_sheet;
+    // //Sheet 9 Looper - EXCEPTIONS
+    // readXlsxFile(file, { sheet: exceptions_sheet_name }).then((data) => {
+    //   //Loops through every row in the sheet
 
-    //Sheet 9 Looper - EXCEPTIONS
-    readXlsxFile(file, { sheet: exceptions_sheet_name }).then((data) => {
-      //Loops through every row in the sheet
+    //   let exceptions_obj = {};
 
-      let exceptions_obj = {};
+    //   // let temp_combined = this.state.combined_saver_and_main.slice();
 
-      // let temp_combined = this.state.combined_saver_and_main.slice();
+    //   for (let index = 0; index < data.length; index++) {
+    //     //Get Sale Start Date from Sheet 1 and set state for sale_start_date variables
+    //     if (data[index][3] !== undefined && data[index][3].length === 6 && data[index][4] !== undefined) {
+    //       // let splitOriginAndDestination = data[index][3].match(/.{1,3}/g)
+    //       let combined_code = data[index][3];
+    //       let sentence = data[index][4];
 
-      for (let index = 0; index < data.length; index++) {
-        //Get Sale Start Date from Sheet 1 and set state for sale_start_date variables
-        if (data[index][3] !== undefined && data[index][3].length === 6 && data[index][4] !== undefined) {
-          // let splitOriginAndDestination = data[index][3].match(/.{1,3}/g)
-          let combined_code = data[index][3];
-          let sentence = data[index][4];
+    //       // console.log('sentence: ', sentence)
+    //       let firstCity = sentence.split('Travel from ').pop().split('(')[0].trim();
+    //       let findFirstMyCity = city_caps_conversion.find(obj => obj.AVFM_name === firstCity)
+    //       let finalFirstCity = findFirstMyCity.City_Name;
+    //       // console.log('finalFirstCity: ', finalFirstCity)
 
-          // console.log('sentence: ', sentence)
-          let firstCity = sentence.split('Travel from ').pop().split('(')[0].trim();
-          let findFirstMyCity = city_caps_conversion.find(obj => obj.AVFM_name === firstCity)
-          let finalFirstCity = findFirstMyCity.City_Name;
-          // console.log('finalFirstCity: ', finalFirstCity)
-
-          let secondCity = sentence.split(') to ').pop().split('(')[0].trim();
-          let findMySecondCity = city_caps_conversion.find(obj => obj.AVFM_name === secondCity)
-          let finalSecondCity = findMySecondCity.City_Name;
+    //       let secondCity = sentence.split(') to ').pop().split('(')[0].trim();
+    //       let findMySecondCity = city_caps_conversion.find(obj => obj.AVFM_name === secondCity)
+    //       let finalSecondCity = findMySecondCity.City_Name;
 
 
-          let mySplit = sentence.split(firstCity);
-          let firstCombine = mySplit[0] + finalFirstCity + mySplit[1]
+    //       let mySplit = sentence.split(firstCity);
+    //       let firstCombine = mySplit[0] + finalFirstCity + mySplit[1]
 
-          let mySplit2 = firstCombine.split(secondCity);
-          let secondCombine = mySplit2[0] + finalSecondCity + mySplit2[1]
+    //       let mySplit2 = firstCombine.split(secondCity);
+    //       let secondCombine = mySplit2[0] + finalSecondCity + mySplit2[1]
 
-          // console.log(splitOriginAndDestination[0], ' : ', splitOriginAndDestination[1]);
-          if (exceptions_obj.hasOwnProperty(combined_code)) {
-            console.log(combined_code, "have DUPLICATE Fare Rules! Delete one that you don't want to use and rerun the app again.")
-          } else {
-            exceptions_obj[combined_code] = secondCombine
-          }
+    //       // console.log(splitOriginAndDestination[0], ' : ', splitOriginAndDestination[1]);
+    //       if (exceptions_obj.hasOwnProperty(combined_code)) {
+    //         console.log(combined_code, "have DUPLICATE Fare Rules! Delete one that you don't want to use and rerun the app again.")
+    //       } else {
+    //         exceptions_obj[combined_code] = secondCombine
+    //       }
 
-          // exceptions_array.push({ [combined_code]: data[index][4] });
-          //exceptions: [{ code_combo: '', code_origin: '', code_destination: '', sentence: '' }],
-        } else {
-          console.log(data[index][3], ' = THERE IS AN EXCEPTION THAT HAS INVALIDE CODE COMBO!')
-        }
+    //       // exceptions_array.push({ [combined_code]: data[index][4] });
+    //       //exceptions: [{ code_combo: '', code_origin: '', code_destination: '', sentence: '' }],
+    //     } else {
+    //       console.log(data[index][3], ' = THERE IS AN EXCEPTION THAT HAS INVALIDE CODE COMBO!')
+    //     }
 
-      }//end of for loop Sheet 9
+    //   }//end of for loop Sheet 9
 
-      console.log('FULL EXCEPTIONS OBJECT: ', exceptions_obj)
+    //   console.log('FULL EXCEPTIONS OBJECT: ', exceptions_obj)
 
-      this.setState({
-        exceptions: exceptions_obj,
-      });
+    //   this.setState({
+    //     exceptions: exceptions_obj,
+    //   });
 
-    })//end of readXlsxFile for Sheet 9
+    // })//end of readXlsxFile for Sheet 9
 
 
 
@@ -2486,7 +2485,6 @@ class App extends Component {
                 <div className="file_select_input">
                   <input type="file" className="form-control" id="inputFile" onChange={this.onFileChange} />
                 </div>
-
               </div>
 
 
